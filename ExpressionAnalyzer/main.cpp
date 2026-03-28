@@ -152,15 +152,39 @@ int evaluatePostfix(string postfix)
 
 int main()
 {
-    string expression = "(3+5)*(2-4)";
+    system("cls");
+    string expression;
 
-    string postfix = convertToPostfix(expression);
-
-    cout << "Simple expression: " << expression << endl
-         << endl;
-    cout << "Postfix expression: " << postfix << endl
+    cout << "***********Welcome to Expresison Analyzer***********" << endl
          << endl;
 
-    cout << "The answer of this answer is " << evaluatePostfix(postfix);
+    while (true)
+    {
+        cout << "Enter an expression: ";
+        cin >> expression;
+
+        if (!validateString(expression))
+        {
+            cout << "You have entered invliad expression" << endl
+                 << "Try again!" << endl
+                 << endl;
+        }
+        else
+        {
+            string postfix = convertToPostfix(expression);
+            cout << "The post fix form of your expression is " << convertToPostfix(expression) << endl;
+            cout << "The solution of this expression is " << evaluatePostfix(postfix) << endl;
+
+            char choice;
+
+            cout << endl
+                 << "Do you want to do it again? (Y/N)" << endl;
+            cout << "Enter: ";
+            cin >> choice;
+
+            if (choice != 'Y')
+                break;
+        }
+    }
     return 0;
 }
