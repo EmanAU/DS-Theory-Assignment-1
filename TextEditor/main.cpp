@@ -2,9 +2,14 @@
 
 int main()
 {
+    system("cls");
+
     int choice;
     Stack<string> stack, undo;
     string word;
+
+    cout << "\n***************Welcome to Text Editor***************" << endl
+         << endl;
 
     while (true)
     {
@@ -20,7 +25,7 @@ int main()
         {
         case 1:
             cout << "Enter a work: ";
-            cin >> word;
+            getline(cin, word);
             stack.push(word);
             break;
 

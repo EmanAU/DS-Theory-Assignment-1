@@ -3,67 +3,8 @@
 #define BINARY 2
 #define OCTAL 8
 
-string BinaryConverter(int decimalNumber)
-{
-
-    if (decimalNumber == 1)
-        return "1";
-    else if (decimalNumber == 0)
-        return "0";
-
-    Stack<int> stack;
-    int remainder;
-    while (decimalNumber >= 2)
-    {
-        remainder = decimalNumber % 2;
-        decimalNumber = decimalNumber / 2;
-        stack.push(remainder);
-        if (decimalNumber < 2)
-        {
-            stack.push(decimalNumber);
-        }
-    }
-
-    string binaryNumber;
-    while (!stack.isEmpty())
-    {
-        binaryNumber += to_string(stack.pop());
-    }
-
-    return binaryNumber;
-}
-
 string numberConverter(int number, int base)
 {
-    if (number < base && number >= 0)
-        return to_string(number);
-
-    Stack<int> stack;
-    int remainder;
-    while (number >= base)
-    {
-        remainder = number % base;
-        number = number / base;
-        stack.push(remainder);
-        if (number < base)
-        {
-            stack.push(number);
-            break;
-        }
-    }
-
-    string returnNumber;
-    while (!stack.isEmpty())
-    {
-        returnNumber += to_string(stack.pop());
-    }
-
-    return returnNumber;
-}
-
-string hexConverter(int number)
-{
-    int base = 16;
 
     if (number < base && number >= 0)
         return to_string(number);
@@ -107,7 +48,12 @@ string hexConverter(int number)
 
 int main()
 {
+    system("cls");
+
     int choice, num;
+
+    cout << "\n***************Welcome to Number Converter***************" << endl
+         << endl;
 
     while (true)
     {
@@ -135,7 +81,7 @@ int main()
             break;
 
         case 3:
-            cout << "Number " << num << " in hexadecimal is " << hexConverter(num);
+            cout << "Number " << num << " in hexadecimal is " << numberConverter(num, 16);
             break;
 
         default:
