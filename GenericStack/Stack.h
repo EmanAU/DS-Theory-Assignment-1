@@ -82,6 +82,3 @@ public:
 };
 
 #endif
-
-
-//eman ali
